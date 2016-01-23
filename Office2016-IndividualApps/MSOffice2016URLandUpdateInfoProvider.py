@@ -146,6 +146,7 @@ class MSOffice2016URLandUpdateInfoProvider(Processor):
         # e.g.: "Microsoft Excel Update 15.10.0"
         # Work backwards from the end and break on the first thing
         # that looks like a version
+        match = None
         for element in reversed(item["Title"].split()):
             match = re.match(r"(\d+\.\d+(\.\d)*)", element)
             if match:
@@ -201,7 +202,7 @@ class MSOffice2016URLandUpdateInfoProvider(Processor):
         except BaseException as err:
             raise ProcessorError("Can't download %s: %s" % (base_url, err))
 
-        self.output(self.env["version"])
+        self.output(self.env["type"])
         metadata = plistlib.readPlistFromString(data)
         item = {}
         # Update feeds for a given 'channel' will have either combo or delta
@@ -209,16 +210,16 @@ class MSOffice2016URLandUpdateInfoProvider(Processor):
         # We populate the item dict with the appropriate section of the metadata
         # output, and do string replacement on the pattern of the URL in the
         # case of a Standalone app request.
-        if self.env["version"] == "Combo" or self.env["version"] == "Standalone":
+        if self.env["type"] == "Combo" or self.env["type"] == "Standalone":
             item = [u for u in metadata if not u.get("FullUpdaterLocation")]
-        elif self.env["version"] == "Delta":
+        elif self.env["type"] == "Delta":
             item = [u for u in metadata if u.get("FullUpdaterLocation")]
         if not item:
             raise ProcessorError("Could not find an applicable update in "
                                  "update metadata.")
         item = item[0]
         
-        if self.env["version"] == "Standalone":
+        if self.env["type"] == "Standalone":
             p = re.compile(ur'^[a-zA-Z0-9:/.-]*_[a-zA-Z]*')
             url = item["Location"]
             item["Location"] = re.search(p, url).group() + "_2016_Installer.pkg"
@@ -226,7 +227,7 @@ class MSOffice2016URLandUpdateInfoProvider(Processor):
         self.env["url"] = item["Location"]
         self.output("Found URL %s" % self.env["url"])
 
-        if self.env["version"] == "Combo" or self.env["version"] == "Delta":
+        if self.env["type"] == "Combo" or self.env["type"] == "Delta":
             self.output("Got update: '%s'" % item["Title"])
             
         # now extract useful info from the rest of the metadata that could
@@ -259,7 +260,7 @@ class MSOffice2016URLandUpdateInfoProvider(Processor):
             pkginfo["installs"] = installs_items
 
         # Extra work to do if this is a delta updater
-        if self.env["version"] == "Delta":
+        if self.env["type"] == "Delta":
             try:
                 rel_versions = item["Triggers"]["Registered File"]["VersionsRelative"]
             except KeyError:
@@ -295,9 +296,9 @@ class MSOffice2016URLandUpdateInfoProvider(Processor):
 
     def main(self):
         """Get information about an update"""
-        if self.env["version"] not in SUPPORTED_VERSIONS:
-            raise ProcessorError("Invalid 'version': supported values are '%s'"
-                                 % "', '".join(SUPPORTED_VERSIONS))
+        if self.env["type"] not in SUPPORTED_TYPES:
+            raise ProcessorError("Invalid type: supported values are '%s'"
+                                 % "', '".join(SUPPORTED_TYPES))
         self.get_installer_info()
 
 
