@@ -16,7 +16,7 @@ These are more than just traditional 'update' recipes - while the original inten
 - And finally, there is the new concept of a 'SKU-Less' installer, meaning a version of the suite that can be installed (except in an AutoDMG workflow) and licensed for O365 or [volume licensing](https://clburlison.com/demystify-office2016/#vl-serializer) after the fact.
 
 Besides the VL suite installer and the SKU-Less version, the Standalone flavor can also be licensed because it contains the proper support files. 
-
+![Image](BreakdownGraphic.png)
 ###All the things!
 Like Pokemon, we've gotta catch them all. Contained in this repo is a custom autopkg processor that allows you to fetch standalone, combo, or delta flavors of the Office 2016 apps, and recipes that can be customized via [overrides](https://github.com/autopkg/autopkg/wiki/FAQ#can-i-change-a-recipe-to-do-x-instead-of-y-do-i-use-overrides-for-that) to grab the one(s) you want. This functionality was enabled by @ftiff by adapting code worked on by @tvsutton, @arubdesu, and originally authored by @gregneagle. 
 
