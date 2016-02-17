@@ -53,6 +53,10 @@ class MAUURLandUpdateInfoProvider(Processor):
             "description": 
                 "Some pkginfo fields extracted from the Microsoft metadata.",
         },
+        "display_name": {
+            "description": 
+                "The name of the package that includes the version.",
+        },
     }
     description = __doc__
     
@@ -75,7 +79,9 @@ class MAUURLandUpdateInfoProvider(Processor):
             installs_item = {
                 "CFBundleShortVersionString": self.getVersion(item),
                 "CFBundleVersion": self.getVersion(item),
-                "path": ("/Applications/Lync/"
+                "path": ("/Library/Application Support/"
+                         "Microsoft/MAU2.0/"
+                         "Microsoft AutoUpdate.app/"
                          "Contents/Info.plist"),
                 "type": "bundle",
                 "version_comparison_key": "CFBundleShortVersionString"
@@ -168,6 +174,7 @@ class MAUURLandUpdateInfoProvider(Processor):
 
         pkginfo['name'] = self.env.get("munki_update_name", MUNKI_UPDATE_NAME)
         self.env["additional_pkginfo"] = pkginfo
+        self.env["display_name"] = pkginfo["display_name"]
         self.output("Additional pkginfo: %s" % self.env["additional_pkginfo"])
 
     def main(self):
