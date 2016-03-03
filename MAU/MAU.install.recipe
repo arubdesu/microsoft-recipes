@@ -12,7 +12,7 @@
 	<key>MinimumVersion</key>
 	<string>0.4.1</string>
 	<key>ParentRecipe</key>
-	<string>com.github.microsoft-recipes.pkg.MAU</string>
+	<string>com.github.autopkg.microsoft-recipes.pkg.MAU</string>
 	<key>Process</key>
 	<array>
 		<dict>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Finds latest Microsoft AutoUpdate (MAU) installer, downloads the pkg and uploads to LANrev</string>
+	<key>Identifier</key>
+	<string>com.github.autopkg.microsoft-recipes.lanrev.MAU</string>
+	<key>Input</key>
+	<dict>
+		<key>CULTURE_CODE</key>
+		<string>0409</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.4.2</string>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.microsoft-recipes.pkg.MAU</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>dest_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/%display_name%.amsdpackages</string>
+				<key>import_pkg_to_servercenter</key>
+				<true/>
+				<key>sdpackages_ampkgprops_path</key>
+				<string>%RECIPE_DIR%/%NAME%-Defaults.ampkgprops</string>
+				<key>source_payload_path</key>
+				<string>%pathname%</string>
+			</dict>
+			<key>Processor</key>
+			<string>com.github.autopkg.microsoft.jbaker10.LANrevImporter/LANrevImporter</string>
+			<key>SharedProcessorRepoURL</key>
+			<string>https://github.com/jbaker10/LANrevImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

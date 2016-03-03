@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest Microsoft Office 2016 SKU-less installer package and uploads to LANrev.
+
+Set the REGION key to:
+
+525133 for Americas (default)
+532572 for Europe
+532577 for Asia</string>
+	<key>Identifier</key>
+	<string>com.github.autopkg.microsoft-recipes.lanrev.Office2016Suite</string>
+	<key>Input</key>
+	<dict>
+		<key>DOWNLOAD_URL_BASE</key>
+		<string>http://go.microsoft.com/fwlink/?linkid=</string>
+		<key>NAME</key>
+		<string>Office2016Suite</string>
+		<key>REGION</key>
+		<string>525133</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.4.1</string>
+	<key>ParentRecipe</key>
+	<string>com.github.autopkg.microsoft-recipes.download.Office2016Suite</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>dest_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.amsdpackages</string>
+				<key>import_pkg_to_servercenter</key>
+				<true/>
+				<key>sdpackages_ampkgprops_path</key>
+				<string>%RECIPE_DIR%/%NAME%-Defaults.ampkgprops</string>
+				<key>source_payload_path</key>
+				<string>%pathname%</string>
+			</dict>
+			<key>Processor</key>
+			<string>com.github.jbaker10.LANrevImporter/LANrevImporter</string>
+			<key>SharedProcessorRepoURL</key>
+			<string>https://github.com/jbaker10/LANrevImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
