@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest OneNote 2016 update (or standalone) pkg,
+	<string>Downloads the latest OneNote 2016 update pkg,
 and appends the type and version to the end of the filename.
 
 MSLOCALE sets the locale for a descriptive text that will be
@@ -11,7 +11,7 @@ extracted from the Microsoft update metadata. See
 https://msdn.microsoft.com/en-us/goglobal/bb964664.aspx
 for more information about locale IDs. Defaults to 1033 for English.
 
-TYPE supports 'Combo', and 'Delta' options. (No Standalone download available for OneNote)
+TYPE supports 'Combo', and 'Delta' options. (No Standalone download available for OneNote.)
 </string>
 	<key>Identifier</key>
 	<string>com.github.autopkg.microsoft-recipes.download.MicrosoftOneNote</string>
