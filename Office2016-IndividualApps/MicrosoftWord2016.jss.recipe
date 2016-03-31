@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Identifier</key>
-	<string>com.github.autopkg.arubdesu-recipes.2016SuiteStandalone.jss.MicrosoftWord</string>
+	<string>com.github.autopkg.microsoft-recipes.jss.MicrosoftWord</string>
 	<key>Input</key>
 	<dict>
 		<!-- Extension Attributes -->
@@ -43,7 +43,7 @@
 		<string>True</string>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>com.github.autopkg.arubdesu-recipes.2016SuiteStandalone.download.MicrosoftWord</string>
+	<string>com.github.autopkg.microsoft-recipes.download.MicrosoftWord</string>
 	<key>MinimumVersion</key>
 	<string>0.4.2</string>
 	<key>Process</key>
