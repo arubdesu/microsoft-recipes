@@ -27,7 +27,7 @@ __all__ = ["MAUURLandUpdateInfoProvider"]
 
 CULTURE_CODE = "0409"
 BASE_URL = "http://www.microsoft.com/mac/autoupdate/%sMSau03.xml"
-MUNKI_UPDATE_NAME = "Microsoft Auto Update"
+MUNKI_UPDATE_NAME = "Microsoft AutoUpdate"
 
 class MAUURLandUpdateInfoProvider(Processor):
     """Provides a download URL for the most recent version of MAU."""

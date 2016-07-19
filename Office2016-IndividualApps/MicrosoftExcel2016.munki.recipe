@@ -35,7 +35,7 @@ TYPE supports 'Combo', 'Delta', and 'Standalone' options. Default is Combo.
 			<array>
 				<string>Microsoft Excel</string>
 				<string>Microsoft Error Reporting</string>
-				<string>Microsoft Auto Update</string>
+				<string>Microsoft AutoUpdate</string>
 			</array>
 			<key>catalogs</key>
 			<array>
