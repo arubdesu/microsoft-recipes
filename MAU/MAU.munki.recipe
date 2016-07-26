@@ -20,7 +20,7 @@ for a table of Culture Codes.</string>
 		<dict>
 			<key>blocking_applications</key>
 			<array>
-				<string>Microsoft Autoupdate</string>
+				<string>Microsoft AutoUpdate</string>
 			</array>
 			<key>catalogs</key>
 			<array>

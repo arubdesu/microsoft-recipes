@@ -27,7 +27,7 @@ __all__ = ["MAUURLandUpdateInfoProvider"]
 
 CULTURE_CODE = "0409"
 BASE_URL = "http://www.microsoft.com/mac/autoupdate/%sMSau03.xml"
-MUNKI_UPDATE_NAME = "Microsoft Auto Update"
+MUNKI_UPDATE_NAME = "Microsoft AutoUpdate"
 
 class MAUURLandUpdateInfoProvider(Processor):
     """Provides a download URL for the most recent version of MAU."""
@@ -37,7 +37,7 @@ class MAUURLandUpdateInfoProvider(Processor):
             "description": ("See "
                 "http://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx"
                 " for a table of CultureCodes Defaults to 0409, which "
-                "corresponds to en-US (English - United States)"), 
+                "corresponds to en-US (English - United States)"),
         },
         "base_url": {
             "required": False,
@@ -50,25 +50,25 @@ class MAUURLandUpdateInfoProvider(Processor):
             "description": "URL to the latest MAU installer.",
         },
         "additional_pkginfo": {
-            "description": 
+            "description":
                 "Some pkginfo fields extracted from the Microsoft metadata.",
         },
         "display_name": {
-            "description": 
+            "description":
                 "The name of the package that includes the version.",
         },
     }
     description = __doc__
-    
+
     def sanityCheckExpectedTriggers(self, item):
         """Raises an exeception if the Trigger Condition or
         Triggers for an update don't match what we expect.
         Protects us if these change in the future."""
         if not item.get("Trigger Condition") == ["and", "Registered File"]:
             raise ProcessorError(
-                "Unexpected Trigger Condition in item %s: %s" 
+                "Unexpected Trigger Condition in item %s: %s"
                 % (item["Title"], item["Trigger Condition"]))
-    
+
     def getInstallsItems(self, item):
         """Attempts to parse the Triggers to create an installs item"""
         self.sanityCheckExpectedTriggers(item)
@@ -88,7 +88,7 @@ class MAUURLandUpdateInfoProvider(Processor):
             }
             return [installs_item]
         return None
-    
+
     def getVersion(self, item):
         """Extracts the version of the update item."""
         # currently relies on the item having a title in the format
@@ -96,7 +96,7 @@ class MAUURLandUpdateInfoProvider(Processor):
         title = item.get("Title", "")
         version_str = title[21:]
         return version_str
-    
+
     def valueToOSVersionString(self, value):
         """Converts a value to an OS X version number"""
         version_str = ''
@@ -145,14 +145,14 @@ class MAUURLandUpdateInfoProvider(Processor):
             f.close()
         except BaseException as err:
             raise ProcessorError("Can't download %s: %s" % (base_url, err))
-        
+
         metadata = plistlib.readPlistFromString(data)
         # MAU 'update' metadata is a list of dicts.
         # we need to sort by date.
         sorted_metadata = sorted(metadata, key=itemgetter('Date'))
         # choose the last item, which should be most recent.
         item = sorted_metadata[-1]
-        
+
         self.env["url"] = item["Location"]
         self.env["pkg_name"] = item["Payload"]
         self.output("Found URL %s" % self.env["url"])

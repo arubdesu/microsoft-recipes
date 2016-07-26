@@ -29,7 +29,7 @@ Set the REGION key to:
 		<dict>
 			<key>blocking_applications</key>
 			<array>
-					<string>Microsoft Autoupdate</string>
+					<string>Microsoft AutoUpdate</string>
 					<string>Microsoft Outlook</string>
 					<string>Microsoft Excel</string>
 					<string>Microsoft PowerPoint</string>
