@@ -30,7 +30,7 @@ __all__ = ["MSOffice2016URLandUpdateInfoProvider"]
 # CULTURE_CODE defaulting to 'en-US' as the installers and updates seem to be
 # multilingual.
 CULTURE_CODE = "0409"
-BASE_URL = "http://www.microsoft.com/mac/autoupdate/%s15.xml"
+BASE_URL = "https://officecdn.microsoft.com/pr/%s/OfficeMac/%s15.xml"
 PROD_DICT = {
     'Excel':'XCEL',
     'OneNote':'ONMC',
@@ -193,7 +193,7 @@ class MSOffice2016URLandUpdateInfoProvider(Processor):
         # block a User-Agent of 'Python-urllib/2.7' - even a blank User-Agent
         # string passes.
         req.add_header("User-Agent",
-                       "Microsoft%20AutoUpdate/3.4 CFNetwork/760.2.6 Darwin/15.4.0 (x86_64)")
+                       "Microsoft%20AutoUpdate/3.6.16080300 CFNetwork/760.6.3 Darwin/15.6.0 (x86_64)")
 
         try:
             fdesc = urllib2.urlopen(req)
