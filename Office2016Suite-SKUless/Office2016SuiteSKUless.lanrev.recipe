@@ -15,7 +15,7 @@ Set the REGION key to:
 	<key>Input</key>
 	<dict>
 		<key>DOWNLOAD_URL_BASE</key>
-		<string>http://go.microsoft.com/fwlink/?linkid=</string>
+		<string>https://go.microsoft.com/fwlink/?linkid=</string>
 		<key>NAME</key>
 		<string>Office2016Suite</string>
 		<key>REGION</key>

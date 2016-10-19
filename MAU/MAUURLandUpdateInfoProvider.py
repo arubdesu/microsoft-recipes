@@ -26,7 +26,7 @@ from autopkglib import Processor, ProcessorError
 __all__ = ["MAUURLandUpdateInfoProvider"]
 
 CULTURE_CODE = "0409"
-BASE_URL = "http://www.microsoft.com/mac/autoupdate/%sMSau03.xml"
+BASE_URL = "https://www.microsoft.com/mac/autoupdate/%sMSau03.xml"
 MUNKI_UPDATE_NAME = "Microsoft AutoUpdate"
 
 class MAUURLandUpdateInfoProvider(Processor):
@@ -35,7 +35,7 @@ class MAUURLandUpdateInfoProvider(Processor):
         "culture_code": {
             "required": False,
             "description": ("See "
-                "http://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx"
+                "https://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx"
                 " for a table of CultureCodes Defaults to 0409, which "
                 "corresponds to en-US (English - United States)"),
         },

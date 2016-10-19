@@ -22,7 +22,7 @@ Set the REGION key to:
 		<key>REGION</key>
 		<string>525133</string>
 		<key>DOWNLOAD_URL_BASE</key>
-		<string>http://go.microsoft.com/fwlink/?linkid=</string>
+		<string>https://go.microsoft.com/fwlink/?linkid=</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Office2016</string>
 		<key>pkginfo</key>
