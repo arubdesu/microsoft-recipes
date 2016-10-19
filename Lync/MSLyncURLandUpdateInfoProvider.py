@@ -36,7 +36,7 @@ class MSLyncURLandUpdateInfoProvider(Processor):
         "culture_code": {
             "required": False,
             "description": ("See "
-                "https://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx"
+                "http://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx"
                 " for a table of CultureCodes Defaults to 0409, which "
                 "corresponds to en-US (English - United States)"), 
         },
