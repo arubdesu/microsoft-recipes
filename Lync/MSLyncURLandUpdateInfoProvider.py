@@ -27,7 +27,7 @@ from autopkglib import Processor, ProcessorError
 __all__ = ["MSLyncURLandUpdateInfoProvider"]
 
 CULTURE_CODE = "0409"
-BASE_URL = "http://www.microsoft.com/mac/autoupdate/%sUCCP14.xml"
+BASE_URL = "https://www.microsoft.com/mac/autoupdate/%sUCCP14.xml"
 MUNKI_UPDATE_NAME = "Lync_Installer"
 
 class MSLyncURLandUpdateInfoProvider(Processor):

@@ -20,7 +20,7 @@ Set the REGION key to:
 		<key>REGION</key>
 		<string>525133</string>
 		<key>DOWNLOAD_URL_BASE</key>
-		<string>http://go.microsoft.com/fwlink/?linkid=</string>
+		<string>https://go.microsoft.com/fwlink/?linkid=</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.1</string>
